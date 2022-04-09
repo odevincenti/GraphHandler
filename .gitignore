@@ -1,0 +1,5 @@
+# Ignora el cache
+/__pycache__/
+
+# Ignora la carpeta de archivos para graficar
+/Graficadores/
