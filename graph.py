@@ -3,8 +3,16 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from file_parser import parse_mc, parse_csv, parse_txt
 
+# AUTOMATIZACIÓN DE GRÁFICOS
+'''
+Si se guardan todos los archivos respetando un formato, será posible hacer distintos gráficos cambiando sólo unos parámetros
+'''
+path = r"G:\Unidades compartidas\ASSD - Grupo 1\Graficador\Ejemplos\\"
+circuit = "Ej"
+param = "Vo"
+
 # CONFIGURACION DEL GRÁFICO
-title = "Gráfico de ejemplo"        # Título del gráfico
+title = "Simulación " + "Gráfico de ejemplo"        # Título del gráfico
 xlabel = "Eje x"        # Título del eje x
 ylabel = "Eje y"        # Título del eje y
 
@@ -22,14 +30,6 @@ xticklabels = [str(xlim[0]), "", "T", "", "2T", str(xlim[1])]
 delta = 0.1*(ylim[1] - ylim[0])
 yticks = [ylim[0], 2*delta + ylim[0], 4*delta + ylim[0], 6*delta + ylim[0], 8*delta + ylim[0], ylim[1]]
 yticklabels = [str(ylim[0]), "", "$0$", "", "", str(ylim[1])]
-
-# AUTOMATIZACIÓN DE GRÁFICOS
-'''
-Si se guardan todos los archivos respetando un formato, será posible hacer distintos gráficos cambiando sólo unos parámetros
-'''
-path = r"G:\Unidades compartidas\ASSD - Grupo 1\Graficador\Ejemplos\\"
-circuit = "Ej"
-param = "Vo"
 
 # CÁLCULO DE CURVA TEÓRICA
 f = 1/0.02
@@ -77,5 +77,3 @@ ax.grid()
 fig.tight_layout()
 plt.savefig(path + r"Gráficos\\" + circuit + "_" + param + ".jpg", dpi=300)
 plt.show()
-
-

@@ -11,12 +11,14 @@ def parse_csv(path):
 
     file = open(os.path.normpath(path), "r")
     l = file.readline()
-    labels = l.split(",")
+    if l.find(",") != -1: sep = ","
+    else: sep = ";"
+    labels = l.split(sep)
     data = [[] for i in labels]
     units = __get_units(labels)
     l = file.readline()
     while l != '\n' and l != '':
-        l = l.split(",")
+        l = l.split(sep)
         for j in range(len(data)):
             data[j].append(float(l[j]))
         l = file.readline()
